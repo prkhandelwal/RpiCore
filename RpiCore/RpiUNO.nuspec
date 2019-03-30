@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>RpiUno.Pratik</id>
+    <version>1.0.0</version>
+    <title>RpiUNO</title>
+    <authors>Pratik Khandelwal</authors>
+    <owners>Pratik Khandelwal</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/prkhandelwal/RpiCore/</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>The package provides fuctions for communication between Raspberry-Pi and Arduino over an I2C bus. </description>
+    <releaseNotes>Currently supports Arduino UNO and Mega</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>RaspberryPi, Arduino, I2C, Rpi, Raspberry-Pi, Pi</tags>
+  </metadata>
+  <files>
+        <!-- WinMd and IntelliSense files -->
+        <file src="bin\Debug\RpiUNO.winmd" target="lib\uap10.0"/>
+
+        <file src="bin\ARM\Debug\RpiUNO.pri" target="runtimes\win10-arm\native"/>
+
+        <file src="bin\x64\Debug\RpiUNO.pri" target="runtimes\win10-x64\native"/>
+
+        <file src="bin\Debug\RpiUNO.pri" target="runtimes\win10-x86\native"/>
+    </files>
+</package>
