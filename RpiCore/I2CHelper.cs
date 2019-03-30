@@ -54,8 +54,10 @@ namespace RpiCore
             try
             {
                 // Initialize I2C
-                var Settings = new I2cConnectionSettings(I2C_Slave_Address);
-                Settings.BusSpeed = I2cBusSpeed.StandardMode;
+                var Settings = new I2cConnectionSettings(I2C_Slave_Address)
+                {
+                    BusSpeed = I2cBusSpeed.StandardMode
+                };
 
                 if (AQS == null || DIS == null)
                 {
@@ -83,13 +85,16 @@ namespace RpiCore
 
     }
 
+    /// <summary>
+    /// Contains Getters for Modes
+    /// </summary>
     public sealed class Mode
     {
-        private static byte _RecieveSensorData = 0;
+        private static readonly byte _RecieveSensorData = 0;
 
-        private static byte _RecieveDeviceState = 1;
+        private static readonly byte _RecieveDeviceState = 1;
 
-        private static byte _SendIOSignal = 2;
+        private static readonly byte _SendIOSignal = 2;
 
         /// <summary>
         /// Retrieves sensor data from specified I2C slave Arduino
