@@ -7,9 +7,9 @@ using Windows.Devices.Enumeration;
 using Windows.Devices.I2c;
 using Windows.Foundation;
 
-namespace RpiCore
+namespace RpiUNO
 {
-    public sealed class I2CHelper
+    public sealed class UnoI2C
     {
         private static bool Lock = false;
         private static string AQS;
@@ -23,9 +23,9 @@ namespace RpiCore
         /// <param name="Pin">Pin to be set. ONLY VALID FOR MODE-2</param>
         /// <param name="PinValue">Value to be set.</param>
         /// <returns>Returns fourteen response byte.</returns>
-        public IAsyncOperation<IEnumerable<byte>> WriteRead(int I2C_Slave_Address, byte Mode, byte Pin, byte PinValue)
+        public static IAsyncOperation<IEnumerable<byte>> ReadWriteAsync(int I2C_Slave_Address, byte Mode, byte Pin, byte PinValue)
         {
-            return this.WriteReadHelper(I2C_Slave_Address, Mode, Pin, PinValue).AsAsyncOperation();
+            return WriteReadHelper(I2C_Slave_Address, Mode, Pin, PinValue).AsAsyncOperation();
         }
 
         /// <summary>
@@ -33,13 +33,13 @@ namespace RpiCore
         /// </summary>
         /// <param name="I2C_Slave_Address">Slave Arduino's address</param>
         /// <returns>Returns fourteen response byte.</returns>
-        public IAsyncOperation<IEnumerable<byte>> Read(int I2C_Slave_Address)
-        {
-            return this.WriteReadHelper(I2C_Slave_Address).AsAsyncOperation();
-        }
+        //public static IAsyncOperation<IEnumerable<byte>> Read(int I2C_Slave_Address)
+        //{
+        //    return WriteReadHelper(I2C_Slave_Address).AsAsyncOperation();
+        //}
 
 
-        private async Task<IEnumerable<byte>> WriteReadHelper(int I2C_Slave_Address, byte Pin = 0, byte Mode = 1, byte PinValue = 0)
+        private static async Task<IEnumerable<byte>> WriteReadHelper(int I2C_Slave_Address, byte Pin = 0, byte Mode = 1, byte PinValue = 0)
         {
             while (Lock != false)
             {
@@ -99,7 +99,7 @@ namespace RpiCore
         /// <summary>
         /// Retrieves sensor data from specified I2C slave Arduino
         /// </summary>
-        public byte ReceiveSensorData
+        public static byte ReceiveSensorData
         {
             get
             {
@@ -110,7 +110,7 @@ namespace RpiCore
         /// <summary>
         /// Retrieves devices state from specified I2C slave Arduino
         /// </summary>
-        public byte RecieveDeviceState
+        public static byte RecieveDeviceState
         {
             get
             {
@@ -121,7 +121,7 @@ namespace RpiCore
         /// <summary>
         /// Sends IO signal to pin of specified I2C slave Arduino
         /// </summary>
-        public byte SendIOSignal
+        public static byte SendIOSignal
         {
             get
             {
