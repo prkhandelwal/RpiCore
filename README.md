@@ -1,10 +1,10 @@
 # Windows Runtime Component to enable Communication with Arduino in Windows 10 IoT Core UWPs
 
 #### Install Package using Package Manager
-`Install-Package RpiUno.Pratik -Version 1.0.0 `
+`Install-Package RpiUno -Version 1.0.0 `
 
 #### Intall Package using .NET-Cli
-`dotnet add package RpiUno.Pratik --version 1.0.0`
+`dotnet add package RpiUno --version 1.0.0`
 
 The Package currently supports communication over I2C bus.
 
