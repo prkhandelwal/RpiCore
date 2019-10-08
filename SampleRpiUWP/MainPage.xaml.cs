@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -29,11 +30,13 @@ namespace SampleRpiUWP
             this.InitializeComponent();
         }
 
+        // Recevies Turn on button event
         private async void TurnOn_Click(object sender, RoutedEventArgs e)
         {
             await UnoI2C.ReadWriteAsync(42, Mode.SendIOSignal, 11, PinValue.High);
         }
 
+        // Recevies Turn off button event
         private async void TurnOff_Click(object sender, RoutedEventArgs e)
         {
             await UnoI2C.ReadWriteAsync(42, Mode.SendIOSignal, 11, PinValue.Low);

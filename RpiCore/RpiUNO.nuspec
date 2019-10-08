@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>RpiUno.Pratik</id>
+    <id>RpiUno</id>
     <version>1.0.0</version>
     <title>RpiUNO</title>
     <authors>Pratik Khandelwal</authors>
