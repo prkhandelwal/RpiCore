@@ -1,4 +1,4 @@
-# Windows Runtime Component to enable Communication with Arduino in Windows 10 IoT Core UWPs
+# Nuget Package for thread-safe communication between Raspberry Pi & Arduino in Windows 10 IoT Core UWPs
 
 #### Install Package using Package Manager
 `Install-Package RpiUno -Version 1.0.0 `
